@@ -20,9 +20,6 @@ jobs:
       - name: Checkout `carrie` (we hope)
         uses: ./.github/actions/checkout
 
-      - name: misc
-        run: nix build .
-
       - name: Build docs
         run: mdbook build
 
