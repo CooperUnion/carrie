@@ -8,6 +8,3 @@ runs:
   steps:
     - uses: DeterminateSystems/nix-installer-action@v6
     - uses: DeterminateSystems/magic-nix-cache-action@v2
-    - uses: HatsuneMiku3939/direnv-action@v1.0.2
-      with:
-        direnvVersion: 2.32.3

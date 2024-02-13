@@ -20,7 +20,7 @@ jobs:
       - name: Checkout `carrie` (we hope)
         uses: ./.github/actions/checkout
 
-      - name: actually build nix
+      - name: misc
         run: nix build .
 
       - name: Build docs
