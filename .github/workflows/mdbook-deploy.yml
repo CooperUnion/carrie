@@ -20,8 +20,8 @@ jobs:
       - name: Checkout `carrie` (we hope)
         uses: ./.github/actions/checkout
 
-      - name: misc
-        run: ls /home/runner/.nix-profile/bin/
+      - name: actually build nix
+        run: nix build .
 
       - name: Build docs
         run: mdbook build
