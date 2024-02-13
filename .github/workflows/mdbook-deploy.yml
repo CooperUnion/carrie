@@ -21,7 +21,7 @@ jobs:
         uses: ./.github/actions/checkout
 
       - name: Build docs
-        run: mdbook build
+        run: mdbook build docs/
 
       - name: Deploy docs
         uses: s0/git-publish-subdir-action@develop
