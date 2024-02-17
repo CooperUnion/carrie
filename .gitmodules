@@ -1,0 +1,16 @@
+[submodule "pico/pico-sdk"]
+	path = pico/pico-sdk
+	url = https://github.com/raspberrypi/pico-sdk.git
+[submodule "pico/firmware/lib/cpp-base64"]
+	path = pico/firmware/lib/cpp-base64
+	url = https://github.com/ReneNyffenegger/cpp-base64.git
+[submodule "pico/firmware/lib/hash-library"]
+	path = pico/firmware/lib/hash-library
+	url = https://github.com/catvw/hash-library.git
+[submodule "pico/firmware/lib/argumentum"]
+	path = pico/firmware/lib/argumentum
+	url = https://github.com/mmahnic/argumentum.git
+[submodule "pico/openocd"]
+	path = pico/openocd
+	url = https://github.com/raspberrypi/openocd.git
+	branch = rp2040-v0.12.0
