@@ -2,7 +2,11 @@
 
 [Introduction](./introduction.md)
 
-# hey does this work?
-- [Where to Start](./where-to-start.md)
-- [Building Her](./building-her.md)
-- [Tools](./tools.md)
+# Background
+- [Overview](./background/overview.md)
+- [Kinematics](./background/kinematics.md)
+
+# Operating Carrie
+- [Where to Start](./operation/where-to-start.md)
+<!-- - [Building Her](./building-her.md) -->
+<!-- - [Tools](./tools.md) -->
