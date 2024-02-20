@@ -4,3 +4,5 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Carrie Documentation"
+[preprocessor.katex]
+after = ["links"]
