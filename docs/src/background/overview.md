@@ -1,5 +1,4 @@
 # Overview 
-
 In the Spring of 2023, under the supervision of Professor Shlayan, Cat and Jeannette undertook the task of bringing Carrie to life. Our research goal was to create a vehicle capable of parallel parking, no easy feat. When Carrie first came to us, she was an elegant mechanical design, but required a brain and power distribution to all of her components. 
 
 ## Research Background

@@ -1,5 +1,4 @@
 # Meet Carrie
-
 <img src="images/carrie-cover.JPG"
      alt="Carrie in her former glory in 2023"
      style="max-height:300px;" />
