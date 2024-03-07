@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">[title better; cat's notes on how to do this]</li><li class="chapter-item expanded "><a href="where-to-start.html"><strong aria-hidden="true">1.</strong> Where to Start</a></li><li class="chapter-item expanded "><a href="building-her.html"><strong aria-hidden="true">2.</strong> Building Her</a></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">3.</strong> Tools</a></li><li class="chapter-item expanded "><a href="programming-her.html"><strong aria-hidden="true">4.</strong> Programming Her</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">hey does this work?</li><li class="chapter-item expanded "><a href="where-to-start.html"><strong aria-hidden="true">1.</strong> Where to Start</a></li><li class="chapter-item expanded "><a href="building-her.html"><strong aria-hidden="true">2.</strong> Building Her</a></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">3.</strong> Tools</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -178,147 +178,7 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="where-to-start"><a class="header" href="#where-to-start">Where to Start</a></h1>
 <p>bro just ask jeannette</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="building-her"><a class="header" href="#building-her">Building Her</a></h1>
-<p>For mechanical notes... ask Jeannette.</p>
-<h2 id="rear-motors"><a class="header" href="#rear-motors">Rear Motors</a></h2>
-<p>Ensure the rear motors are connected to their motor controller with opposite
-polarity (i.e., ensure the black lead of one motor is connected to the red lead
-of the other), and connect the joined leads to the output of the motor
-controller. The polarity (if wrong) will be corrected in a later step. One way
-to do this neatly is to have a splitter after the motor controller (input on
-the bottom, output on the right):</p>
-<p><img src="./images/rear-motor-hookup.jpg" alt="rear motor hookup" /></p>
-<h2 id="steering-motor"><a class="header" href="#steering-motor">Steering Motor</a></h2>
-<p>The steering motor has six wires coming out of it -- two for power, four for
-the encoder control. Those hook up to the Pico as follows (indexed by color):</p>
-<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
-<tr><td>red</td><td>motor power</td><td>motor controller output</td></tr>
-<tr><td>black</td><td>motor power</td><td>motor controller output</td></tr>
-<tr><td>blue</td><td>encoder power</td><td>+3.3 V</td></tr>
-<tr><td>green</td><td>encoder ground</td><td>pico ground</td></tr>
-<tr><td>yellow</td><td>encoder signal</td><td>pico pin 2</td></tr>
-<tr><td>white</td><td>encoder signal</td><td>pico pin 3</td></tr>
-</tbody></table>
-</div>
-<h2 id="motor-controllers"><a class="header" href="#motor-controllers">Motor Controllers</a></h2>
-<p>Connections for the motor drivers will be referenced to... the following photo,
-as it's much easier to talk about colors than about pin numbers when you can't
-actually see the pin numbers written on the board.</p>
-<p><strong>Note:</strong> the right side of the green terminal block connects to controller
-power (red positive, black ground), and the left side of the block is the
-output.</p>
-<p><img src="./images/example-motor-controller.jpg" alt="example motor controller" /></p>
-<h3 id="steering-motor-controller"><a class="header" href="#steering-motor-controller">Steering Motor Controller</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
-<tr><td>red</td><td>logic power</td><td>+5 V</td></tr>
-<tr><td>brown</td><td>logic ground</td><td>pico ground</td></tr>
-<tr><td>orange</td><td>enable</td><td>pico pin 4</td></tr>
-<tr><td>yellow</td><td>~enable</td><td>pico ground</td></tr>
-<tr><td>green</td><td>polarity</td><td>pico pin 5</td></tr>
-<tr><td>blue</td><td>polarity</td><td>pico pin 6</td></tr>
-</tbody></table>
-</div>
-<h3 id="rear-motor-controller"><a class="header" href="#rear-motor-controller">Rear Motor Controller</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
-<tr><td>red</td><td>logic power</td><td>+5 V</td></tr>
-<tr><td>brown</td><td>logic ground</td><td>pico ground</td></tr>
-<tr><td>orange</td><td>enable</td><td>pico pin 11</td></tr>
-<tr><td>yellow</td><td>~enable</td><td>pico ground</td></tr>
-<tr><td>green</td><td>polarity</td><td>pico pin 12</td></tr>
-<tr><td>blue</td><td>polarity</td><td>pico pin 13</td></tr>
-</tbody></table>
-</div>
-<h2 id="rear-encoders"><a class="header" href="#rear-encoders">Rear Encoders</a></h2>
-<p>The rear encoders each have four wires coming out of them, which connect as
-follows.</p>
-<h3 id="right-rear-encoder"><a class="header" href="#right-rear-encoder">Right Rear Encoder</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
-<tr><td>red</td><td>encoder power</td><td>+3.3 V</td></tr>
-<tr><td>black</td><td>encoder ground</td><td>pico ground</td></tr>
-<tr><td>green</td><td>encoder output</td><td>pico pin 7</td></tr>
-<tr><td>white</td><td>encoder output</td><td>pico pin 8</td></tr>
-</tbody></table>
-</div>
-<h3 id="left-rear-encoder"><a class="header" href="#left-rear-encoder">Left Rear Encoder</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
-<tr><td>red</td><td>encoder power</td><td>+3.3 V</td></tr>
-<tr><td>black</td><td>encoder ground</td><td>pico ground</td></tr>
-<tr><td>green</td><td>encoder output</td><td>pico pin 9</td></tr>
-<tr><td>white</td><td>encoder output</td><td>pico pin 10</td></tr>
-</tbody></table>
-</div>
-<h2 id="single-wire-debug"><a class="header" href="#single-wire-debug">Single Wire Debug</a></h2>
-<p>These connections are hard to describe, so just take a look at the following
-pictures. Note that the order of the wires is flipped between the two, and that
-the wires are plugged into the Pi on outside GPIO pins 9, 10, and 11.</p>
-<p><img src="./images/pico-debug-wires.jpg" alt="pico debug wires" /></p>
-<p><img src="./images/pi-debug-wires.jpg" alt="pi debug wires" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="programming-her"><a class="header" href="#programming-her">Programming Her</a></h1>
-<p>Oh joy! <code>ssh</code> into the Pi for all of this.</p>
-<h2 id="packages-youll-need"><a class="header" href="#packages-youll-need">Packages You'll Need</a></h2>
-<p>This is what you'll need (probably):</p>
-<pre><code class="language-bash">apt update
-
-# for docker (obvs)
-apt install docker.io
-
-# for pico sdk
-apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential
-
-# for openocd
-apt install libtool pkg-config autoconf automake texinfo
-</code></pre>
-<h2 id="cloning-the-repo"><a class="header" href="#cloning-the-repo">Cloning the Repo</a></h2>
-<p>To clone the repo and initialize all the submodules:</p>
-<pre><code class="language-bash">git clone git@github.com:CooperUnion/carrie.git # if you have repo access
-cd carrie/
-git submodule update --init
-</code></pre>
-<h2 id="creating--using-the-docker-image"><a class="header" href="#creating--using-the-docker-image">Creating &amp; Using the Docker Image</a></h2>
-<p>There are some convenience scripts available for your convenience.</p>
-<pre><code class="language-bash">cd pi/
-./container-init.sh # once, to create the container
-./container-run.sh # whenever you need to use it
-</code></pre>
-<h2 id="building-openocd"><a class="header" href="#building-openocd">Building OpenOCD</a></h2>
-<p>You'll have to use a custom-built version of OpenOCD, alas, to get things
-working on the Pi. See <a href="https://github.com/raspberrypi/openocd">here</a> for the
-original instructions.</p>
-<pre><code class="language-bash">cd pico/openocd/
-./bootstrap
-./configure --enable-ftdi --enable-sysfsgpio --enable-bcm2835gpio
-make
-sudo make install
-</code></pre>
-<h2 id="building-the-firmware"><a class="header" href="#building-the-firmware">Building the Firmware</a></h2>
-<p>There are more convenient convenience scripts for your convenience here, too!</p>
-<pre><code class="language-bash">cd pico/firmware/
-./compile.sh
-</code></pre>
-<h2 id="loading-code--debugging"><a class="header" href="#loading-code--debugging">Loading Code &amp; Debugging</a></h2>
-<p>You'll want to be in a <code>tmux</code> session with a few panes for this.</p>
-<p>In one pane, run the OpenOCD server. This allows for loading code &amp; debugging
-the Pico via SWD.</p>
-<pre><code class="language-bash">./openocd-server.sh
-</code></pre>
-<p>In another pane, start <code>gdb</code>:</p>
-<pre><code class="language-bash">./debug.sh
-</code></pre>
-<p>The <code>gdb</code> pane gives you full debugging power, live. To load new code onto the
-Pico, compile the project, then run the following inside <code>gdb</code> (possibly after
-pressing Ctrl-C to stop the Pico running):</p>
-<pre><code>(gdb) load
-(gdb) monitor reset init
-(gdb) continue
-</code></pre>
-<h2 id="working-with-ros"><a class="header" href="#working-with-ros">Working with ROS</a></h2>
-<p>This could be (unfortunately) a book in itself. Basically, here's what you'll
-need to do to start the ROS connection to the Pico, after getting into the container with <code>./container_run</code>:</p>
-<pre><code>colcon build # if you have new stuff you need to build
-. install/local_setup.bash
-ros2 run pico_bridge bridge --ros-args --log-level command_receiver:=DEBUG --log-level vicon_receiver:=DEBUG
-</code></pre>
-<p>This is not totally working right now, but that's the idea.</p>
 
                     </main>
 
