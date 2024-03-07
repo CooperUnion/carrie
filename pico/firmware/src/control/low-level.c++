@@ -18,20 +18,20 @@
 namespace pin {
 enum {
 	// encoder pins
-	lenc1 = 11,
+	lenc1 = 9,
 	lenc2 = 10,
-	senc1 = 15,
-	senc2 = 14,
-	renc1 = 9,
+	senc1 = 2,
+	senc2 = 3,
+	renc1 = 7,
 	renc2 = 8,
 
 	// motor pins
-	rin1 = 21,
-	rin2 = 19,
-	rena = 20,
-	sin1 = 18,
-	sin2 = 16,
-	sena = 17,
+	rin1 = 12,
+	rin2 = 13,
+	rena = 11,
+	sin1 = 5,
+	sin2 = 6,
+	sena = 4,
 
 	// IMU pins
 	scl = 4,
@@ -199,7 +199,6 @@ bool control_loop(repeating_timer_t* out) {
 	);
 //	if (!std::isnan(bias_sample)) bias_r = filter_bias(bias_sample);
 
-#if 0
 #ifdef CARRIE_DEBUG
 	if (++loop_counter % 10 == 0) {
 		std::cout << '\n'
@@ -212,7 +211,6 @@ bool control_loop(repeating_timer_t* out) {
 		          << "velocity: " << velocity << '\n'
 		          << "distance: " << distance << '\n';
 	}
-#endif
 #endif
 
 	bool keep_running = control_loop_active && loop_callback();

@@ -14,6 +14,7 @@
 	path = pico/openocd
 	url = https://github.com/raspberrypi/openocd.git
 	branch = rp2040-v0.12.0
+	shallow = true
 [submodule "pico/firmware/lib/rcc-pico"]
 	path = pico/firmware/lib/rcc-pico
 	url = git@github.com:robotics-crash-course/rcc-pico.git
