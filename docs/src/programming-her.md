@@ -114,4 +114,8 @@ never be vicon data again.
 
 If you enter into another container (perhaps `console`) or some other machine
 running ROS on the network, you should see Carrie advertising her topics &
-actions.
+actions. A move action (not currently possible due to missing vicon, just for illustration) might look like this:
+```bash
+ros2 action send_goal -f /carrie/movement carrie_interfaces/action/Move '{x: 2, y: 2, yaw: 0, velocity: .6}'
+```
+If you don't want feedback, omit `-f`.
