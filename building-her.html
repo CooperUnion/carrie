@@ -184,6 +184,70 @@ to do this neatly is to have a splitter after the motor controller (input on
 the bottom, output on the right):</p>
 <p><img src="./images/rear-motor-hookup.jpg" alt="rear motor hookup" /></p>
 <h2 id="steering-motor"><a class="header" href="#steering-motor">Steering Motor</a></h2>
+<p>The steering motor has six wires coming out of it -- two for power, four for
+the encoder control. Those hook up to the Pico as follows (indexed by color):</p>
+<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
+<tr><td>red</td><td>motor power</td><td>motor controller output</td></tr>
+<tr><td>black</td><td>motor power</td><td>motor controller output</td></tr>
+<tr><td>blue</td><td>encoder power</td><td>+3.3 V</td></tr>
+<tr><td>green</td><td>encoder ground</td><td>pico ground</td></tr>
+<tr><td>yellow</td><td>encoder signal</td><td>pico pin 2</td></tr>
+<tr><td>white</td><td>encoder signal</td><td>pico pin 3</td></tr>
+</tbody></table>
+</div>
+<h2 id="motor-controllers"><a class="header" href="#motor-controllers">Motor Controllers</a></h2>
+<p>Connections for the motor drivers will be referenced to... the following photo,
+as it's much easier to talk about colors than about pin numbers when you can't
+actually see the pin numbers written on the board.</p>
+<p><strong>Note:</strong> the right side of the green terminal block connects to controller
+power (red positive, black ground), and the left side of the block is the
+output.</p>
+<p><img src="./images/example-motor-controller.jpg" alt="example motor controller" /></p>
+<h3 id="steering-motor-controller"><a class="header" href="#steering-motor-controller">Steering Motor Controller</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
+<tr><td>red</td><td>logic power</td><td>+5 V</td></tr>
+<tr><td>brown</td><td>logic ground</td><td>pico ground</td></tr>
+<tr><td>orange</td><td>enable</td><td>pico pin 4</td></tr>
+<tr><td>yellow</td><td>~enable</td><td>pico ground</td></tr>
+<tr><td>green</td><td>polarity</td><td>pico pin 5</td></tr>
+<tr><td>blue</td><td>polarity</td><td>pico pin 6</td></tr>
+</tbody></table>
+</div>
+<h3 id="rear-motor-controller"><a class="header" href="#rear-motor-controller">Rear Motor Controller</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
+<tr><td>red</td><td>logic power</td><td>+5 V</td></tr>
+<tr><td>brown</td><td>logic ground</td><td>pico ground</td></tr>
+<tr><td>orange</td><td>enable</td><td>pico pin 11</td></tr>
+<tr><td>yellow</td><td>~enable</td><td>pico ground</td></tr>
+<tr><td>green</td><td>polarity</td><td>pico pin 12</td></tr>
+<tr><td>blue</td><td>polarity</td><td>pico pin 13</td></tr>
+</tbody></table>
+</div>
+<h2 id="rear-encoders"><a class="header" href="#rear-encoders">Rear Encoders</a></h2>
+<p>The rear encoders each have four wires coming out of them, which connect as
+follows.</p>
+<h3 id="right-rear-encoder"><a class="header" href="#right-rear-encoder">Right Rear Encoder</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
+<tr><td>red</td><td>encoder power</td><td>+3.3 V</td></tr>
+<tr><td>black</td><td>encoder ground</td><td>pico ground</td></tr>
+<tr><td>green</td><td>encoder output</td><td>pico pin 7</td></tr>
+<tr><td>white</td><td>encoder output</td><td>pico pin 8</td></tr>
+</tbody></table>
+</div>
+<h3 id="left-rear-encoder"><a class="header" href="#left-rear-encoder">Left Rear Encoder</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Color</th><th>Function</th><th>Connect To</th></tr></thead><tbody>
+<tr><td>red</td><td>encoder power</td><td>+3.3 V</td></tr>
+<tr><td>black</td><td>encoder ground</td><td>pico ground</td></tr>
+<tr><td>green</td><td>encoder output</td><td>pico pin 9</td></tr>
+<tr><td>white</td><td>encoder output</td><td>pico pin 10</td></tr>
+</tbody></table>
+</div>
+<h2 id="single-wire-debug"><a class="header" href="#single-wire-debug">Single Wire Debug</a></h2>
+<p>These connections are hard to describe, so just take a look at the following
+pictures. Note that the order of the wires is flipped between the two, and that
+the wires are plugged into the Pi on outside GPIO pins 9, 10, and 11.</p>
+<p><img src="./images/pico-debug-wires.jpg" alt="pico debug wires" /></p>
+<p><img src="./images/pi-debug-wires.jpg" alt="pi debug wires" /></p>
 
                     </main>
 
