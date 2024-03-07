@@ -28,6 +28,9 @@ To clone the repo and initialize all the submodules:
 git clone git@github.com:CooperUnion/carrie.git # if you have repo access
 cd carrie/
 git submodule update --init
+pushd pico/pico-sdk/
+git submodule update --init
+popd
 ```
 
 ## Creating & Using the Docker Image
@@ -36,8 +39,19 @@ There are some convenience scripts available for your convenience.
 ```bash
 cd pi/
 ./container-init.sh # once, to create the container
-./container-run.sh # whenever you need to use it
+./container-run.sh # to start the container the first time
+docker start -ia contains-carrie # to reattach
 ```
+
+You can also create a second container for testing ROS topics/actions/etc. like
+so:
+```bash
+./container-run.sh console # starts a container called console
+docker start -ia console # to reattach
+```
+
+If you want to see what containers you have running that you can attach to, run
+`docker ps -a`.
 
 ## Building OpenOCD
 You'll have to use a custom-built version of OpenOCD, alas, to get things
@@ -82,13 +96,22 @@ pressing Ctrl-C to stop the Pico running):
 (gdb) continue
 ```
 
+## Calling the Pico
+If you want to access Carrie's serial console, run `./call.sh`.
+
 ## Working with ROS
 
 This could be (unfortunately) a book in itself. Basically, here's what you'll
-need to do to start the ROS connection to the Pico, after getting into the container with `./container_run`:
+need to do to start the ROS connection to the Pico, after getting into the
+container with `docker start -ia contains-carrie`:
 ```
 colcon build # if you have new stuff you need to build
 . install/local_setup.bash
 ros2 run pico_bridge bridge --ros-args --log-level command_receiver:=DEBUG --log-level vicon_receiver:=DEBUG
 ```
-This is not totally working right now, but that's the idea.
+This will start listening for both commands and vicon data, though there will
+never be vicon data again.
+
+If you enter into another container (perhaps `console`) or some other machine
+running ROS on the network, you should see Carrie advertising her topics &
+actions.
