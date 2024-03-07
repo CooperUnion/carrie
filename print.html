@@ -254,6 +254,65 @@ the wires are plugged into the Pi on outside GPIO pins 9, 10, and 11.</p>
 <p><img src="./images/pi-debug-wires.jpg" alt="pi debug wires" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="programming-her"><a class="header" href="#programming-her">Programming Her</a></h1>
+<p>Oh joy! <code>ssh</code> into the Pi for all of this.</p>
+<h2 id="packages-youll-need"><a class="header" href="#packages-youll-need">Packages You'll Need</a></h2>
+<p>This is what you'll need (probably):</p>
+<pre><code class="language-bash">apt update
+
+# for docker (obvs)
+apt install docker.io
+
+# for pico sdk
+apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential
+
+# for openocd
+apt install libtool pkg-config autoconf automake texinfo
+</code></pre>
+<h2 id="cloning-the-repo"><a class="header" href="#cloning-the-repo">Cloning the Repo</a></h2>
+<p>To clone the repo and initialize all the submodules:</p>
+<pre><code class="language-bash">git clone git@github.com:CooperUnion/carrie.git # if you have repo access
+cd carrie/
+git submodule update --init
+</code></pre>
+<h2 id="creating--using-the-docker-image"><a class="header" href="#creating--using-the-docker-image">Creating &amp; Using the Docker Image</a></h2>
+<p>There are some convenience scripts available for your convenience.</p>
+<pre><code class="language-bash">cd pi/
+./container-init.sh # once, to create the container
+./container-run.sh # whenever you need to use it
+</code></pre>
+<h2 id="building-openocd"><a class="header" href="#building-openocd">Building OpenOCD</a></h2>
+<p>You'll have to use a custom-built version of OpenOCD, alas, to get things
+working on the Pi. See <a href="https://github.com/raspberrypi/openocd">here</a> for the
+original instructions.</p>
+<pre><code class="language-bash">cd pico/openocd/
+./bootstrap
+./configure --enable-ftdi --enable-sysfsgpio --enable-bcm2835gpio
+make
+sudo make install
+</code></pre>
+<h2 id="building-the-firmware"><a class="header" href="#building-the-firmware">Building the Firmware</a></h2>
+<p>There are more convenient convenience scripts for your convenience here, too!</p>
+<pre><code class="language-bash">cd pico/firmware/
+./compile.sh
+</code></pre>
+<h2 id="loading-code--debugging"><a class="header" href="#loading-code--debugging">Loading Code &amp; Debugging</a></h2>
+<p>You'll want to be in a <code>tmux</code> session with a few panes for this.</p>
+<p>In one pane, run the OpenOCD server. This allows for loading code &amp; debugging
+the Pico via SWD.</p>
+<pre><code class="language-bash">./openocd-server.sh
+</code></pre>
+<p>In another pane, start <code>gdb</code>:</p>
+<pre><code class="language-bash">./debug.sh
+</code></pre>
+<p>The <code>gdb</code> pane gives you full debugging power, live. To load new code onto the
+Pico, compile the project, then run the following inside <code>gdb</code> (possibly after
+pressing Ctrl-C to stop the Pico running):</p>
+<pre><code>(gdb) load
+(gdb) monitor reset init
+(gdb) continue
+</code></pre>
+<h2 id="working-with-ros"><a class="header" href="#working-with-ros">Working with ROS</a></h2>
+<p>This could be (unfortunately) a book in itself.</p>
 
                     </main>
 
