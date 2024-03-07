@@ -1,6 +1,9 @@
 # Programming Her
 
-Oh joy! `ssh` into the Pi for all of this.
+Oh joy!
+
+**Note:** `ssh` into the Pi for all of this, as this is the Raspberry Pi setup
+guide.
 
 ## Packages You'll Need
 
