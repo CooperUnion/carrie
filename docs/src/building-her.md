@@ -91,3 +91,34 @@ the wires are plugged into the Pi on outside GPIO pins 9, 10, and 11.
 ![pico debug wires](./images/pico-debug-wires.jpg)
 
 ![pi debug wires](./images/pi-debug-wires.jpg)
+
+## Checking Polarity
+See [Programming Her](./programming-her.md) for how to call the Pico over
+serial. This will drop you into her console... probably. If not, reset the Pico
+and do it again.
+
+From Carrie's console, run
+```bash
+carrie:> board-test
+```
+This will print out encoder info, etc.
+
+With motor power off, ensure:
+- both rear encoders increase when the rear wheels are manually rotated
+  forward, and
+- the steering encoder increases when the front wheels are turned to the left.
+
+With motor power on, ensure:
+- the rear wheels rotate forward, and
+- the front wheels turn to the left.
+
+Swap encoder & motor polarities if necessary.
+
+## Steering Calibration
+
+I don't have a great place to put this right now, so it goes here. To
+auto-calibrate Carrie's steering, go into her serial console and run
+```bash
+carrie:> cal-steering
+```
+That should do it.
