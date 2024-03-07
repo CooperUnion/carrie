@@ -81,4 +81,11 @@ pressing Ctrl-C to stop the Pico running):
 
 ## Working with ROS
 
-This could be (unfortunately) a book in itself.
+This could be (unfortunately) a book in itself. Basically, here's what you'll
+need to do to start the ROS connection to the Pico, after getting into the container with `./container_run`:
+```
+colcon build # if you have new stuff you need to build
+. install/local_setup.bash
+ros2 run pico_bridge bridge --ros-args --log-level command_receiver:=DEBUG --log-level vicon_receiver:=DEBUG
+```
+This is not totally working right now, but that's the idea.
